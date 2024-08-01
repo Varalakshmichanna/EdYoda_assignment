@@ -1,0 +1,29 @@
+steps:
+1. Open the Deployment YAML file to update
+2. First, increase the number of replicas to ensure there is more than one instance running and give new image name.
+
+	apiVersion: apps/v1
+	kind: Deployment
+	metadata:
+  	  name: my-deployment
+	spec:
+  	  replicas: 2
+          template:
+    	     spec:
+               containers:
+      		- name: my-container
+        	  image: my-new-image:latest
+
+3. Use the kubectl apply command to apply the updated deployment configuration.
+
+   -->kubectl apply -f my-deployment.yaml
+
+4. Check the status of the deployment to ensure the new pods are being created and the old ones are being terminated.
+
+   -->kubectl rollout status deployment/my-deployment
+
+5. Once the rollout is complete, verify that the new image is running
+
+   -->kubectl get pods -l app=my-deployment
+
+6. If something went wrong roll back to previous version
