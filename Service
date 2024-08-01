@@ -1,0 +1,18 @@
+1. Check the Replica set is correctly created and the pods are running or not
+
+   -->kubectl get rs
+   -->kubectl get pods
+
+2. Once check the NodePort service is correctly created and exposed based on the service
+
+   -->kubectl get svc
+
+3. Check NodePort Configuration: Ensure that the NodePort is correctly configured in the service YAML. The NodePort should be within the range 30000-32767 unless you have customized it.
+
+4. Check that the service selector matches the labels on the pods
+
+5. Verify that the NodePort is correctly mapped to port 8000
+
+6. Access the NodePort from outside the cluster using the correct IP address and port.
+
+   -->http://<node-ip>:<node-port>
