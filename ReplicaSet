@@ -1,0 +1,7 @@
+Use Case: Cluster Wide Monitoring System for centralized analysis and troubleshooting.
+
+---> When we need to collect some data from each node for effective results then we deploy monitoring agent across all nodes in the cluster using Daemon set instead of Replica set.
+
+---> Here if we use Replica sets then we need to adjust manually when any new node is added in the cluster whereas Daemon set automatically handles the new nodes that join the cluster and it runs only one instance on each node.
+
+---> Coming to the use case, for monitoring a cluster ensure that each node we need to monitor, so for this Daemon set will collect information from all nodes but Replica set only maintains the number of pods. 
